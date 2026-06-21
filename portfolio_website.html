@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kshitij Balodhi | Portfolio</title>
+  
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Tailwind Configuration for Dark Mode -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- Lucide Icons via CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
+</head>
+<body class="min-h-screen transition-colors duration-300 bg-[#f8fafc] text-slate-800 dark:bg-[#0b0c0e] dark:text-slate-100">
+
+  <!-- Preloader -->
+  <div id="preloader" class="fixed inset-0 bg-[#0b0c0e] flex flex-col items-center justify-center z-50 transition-all duration-500">
+    <div class="relative flex flex-col items-center">
+      <div class="w-16 h-16 border-4 border-slate-800 border-t-blue-500 rounded-full animate-spin mb-4"></div>
+      <p class="text-slate-500 font-mono tracking-widest text-xs uppercase">Kshitij Balodhi</p>
+      <p class="text-white font-medium text-lg mt-1">Establishing Credibility...</p>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="sticky top-0 z-40 backdrop-blur-md border-b transition-colors duration-300 bg-white/85 border-slate-200 dark:bg-[#0b0c0e]/85 dark:border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex justify-between items-center">
+      
+      <div class="flex flex-col">
+        <span class="text-xl sm:text-2xl font-bold tracking-tight bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 bg-clip-text text-transparent">
+          KSHITIJ BALODHI
+        </span>
+        <span class="text-[10px] font-mono tracking-widest text-slate-400 uppercase">
+          Content & Brand Strategy
+        </span>
+      </div>
+
+      <nav class="hidden md:flex items-center space-x-8">
+        <a href="#about" class="text-sm font-medium hover:text-blue-400 transition">About</a>
+        <a href="#experience" class="text-sm font-medium hover:text-blue-400 transition">Experience</a>
+        <a href="#skills" class="text-sm font-medium hover:text-blue-400 transition">Skills</a>
+        <a href="#work" class="text-sm font-medium hover:text-blue-400 transition">Portfolio</a>
+        <a href="#why-hire" class="text-sm font-medium hover:text-blue-400 transition">Why Hire Me</a>
+        <a href="#contact" class="text-sm font-medium hover:text-blue-400 transition">Contact</a>
+      </nav>
+
+      <div class="flex items-center space-x-4">
+        <button id="theme-toggle" class="p-2.5 rounded-xl border transition-all bg-white border-slate-200 text-slate-700 hover:bg-slate-100 dark:bg-slate-900 dark:border-slate-800 dark:text-yellow-400 dark:hover:bg-slate-800" aria-label="Toggle Dark/Light Mode">
+          <i data-lucide="sun" id="theme-icon" class="w-5 h-5 hidden dark:block"></i>
+          <i data-lucide="moon" id="theme-icon-light" class="w-5 h-5 block dark:hidden"></i>
+        </button>
+        
+        <button id="mobile-menu-btn" class="p-2.5 md:hidden rounded-xl border transition-all bg-white border-slate-200 text-slate-700 dark:bg-slate-900 dark:border-slate-800 dark:text-slate-300">
+          <i data-lucide="menu" id="menu-open-icon" class="w-5 h-5"></i>
+          <i data-lucide="x" id="menu-close-icon" class="w-5 h-5 hidden"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden border-b py-6 px-4 space-y-4 absolute top-20 left-0 w-full shadow-xl transition-all bg-white border-slate-200 dark:bg-[#0b0c0e] dark:border-slate-800">
+      <a href="#about" class="mobile-link block text-base font-medium px-4 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition">About</a>
+      <a href="#experience" class="mobile-link block text-base font-medium px-4 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition">Experience</a>
+      <a href="#skills" class="mobile-link block text-base font-medium px-4 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition">Skills</a>
+      <a href="#work" class="mobile-link block text-base font-medium px-4 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition">Portfolio</a>
+      <a href="#why-hire" class="mobile-link block text-base font-medium px-4 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition">Why Hire Me</a>
+      <a href="#contact" class="mobile-link block text-base font-medium px-4 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition">Contact</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative overflow-hidden pt-12 pb-20 sm:pb-28">
+    <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        
+        <div class="lg:col-span-7 space-y-6 sm:space-y-8 text-left">
+          <div class="inline-flex items-center space-x-2 bg-blue-500/10 border border-blue-500/20 px-3 py-1.5 rounded-full">
+            <i data-lucide="sparkles" class="w-4 h-4 text-blue-400"></i>
+            <span class="text-xs font-semibold tracking-wider text-blue-400 uppercase">Available for Corporate Opportunities</span>
+          </div>
+
+          <div class="space-y-4">
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-none">
+              Hi, I'm <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400">Kshitij Balodhi</span>
+            </h1>
+            <h2 class="text-xl sm:text-2xl font-bold tracking-wide text-slate-400">
+              Content Writer | Marketing Professional | Client Coordinator
+            </h2>
+            <p class="text-base sm:text-lg text-slate-400 max-w-xl font-normal leading-relaxed">
+              "Helping brands grow through compelling content, strategic marketing, and strong client relationships."
+            </p>
+          </div>
+
+          <p class="text-base sm:text-lg leading-relaxed border-l-4 border-blue-500 pl-4 py-1.5 text-slate-600 dark:text-slate-300">
+            Results-driven professional with experience in content writing, digital marketing, sales, and client coordination. Skilled at building brand visibility, creating impactful campaigns, managing client relationships, and delivering measurable results through creative and strategic thinking.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-4 pt-4">
+            <a href="#work" class="px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold rounded-xl shadow-lg shadow-blue-500/20 hover:shadow-blue-500/30 hover:scale-[1.02] transition-all text-center flex items-center justify-center space-x-2">
+              <span>View My Work</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+            <a href="#contact" class="px-8 py-4 font-semibold rounded-xl border text-center transition-all border-slate-200 bg-white hover:bg-slate-50 text-slate-700 dark:border-slate-800 dark:bg-slate-900/50 dark:hover:bg-slate-900 dark:text-slate-100">
+              Contact Me
+            </a>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 flex justify-center">
+          <div class="relative group w-full max-w-sm sm:max-w-md">
+            <div class="absolute -inset-1.5 bg-gradient-to-r from-indigo-500 to-blue-500 rounded-[2rem] blur opacity-25 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
+            
+            <div class="relative rounded-3xl overflow-hidden border p-3 bg-white border-slate-200 shadow-2xl dark:border-slate-800 dark:bg-slate-900/80">
+              <div class="relative rounded-2xl overflow-hidden bg-slate-950" style="aspect-ratio: 3/4;">
+                <img 
+                  src="WhatsApp Image 2026-06-21 at 12.41.05_3.jpeg" 
+                  alt="Kshitij Balodhi Portrait" 
+                  class="w-full h-full object-cover object-top transition duration-500 group-hover:scale-105"
+                  onerror="this.src='https://placehold.co/400x533/1e1b4b/ffffff?text=Kshitij+Balodhi';"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-300"></div>
+                
+                <div class="absolute bottom-4 left-4 right-4 flex justify-between items-center bg-slate-950/70 backdrop-blur-md border border-white/10 px-4 py-2.5 rounded-xl text-xs text-white">
+                  <div class="flex items-center space-x-1.5">
+                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                    <span class="font-semibold tracking-wide">Available Base</span>
+                  </div>
+                  <span class="text-slate-300 font-medium">New Delhi, IN</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-20 border-t bg-[#f1f5f9] border-slate-200 dark:bg-[#0f1115] dark:border-slate-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-xs font-bold tracking-widest text-blue-500 uppercase mb-2">Professional Identity</h2>
+        <p class="text-3xl sm:text-4xl font-extrabold tracking-tight">About Me</p>
+        <div class="w-12 h-1 bg-blue-500 mx-auto mt-4 rounded-full"></div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <div class="lg:col-span-7 space-y-6 text-left">
+          <h3 class="text-2xl font-bold tracking-tight">
+            Combining Analytical Depth with Creative Writing Strategy
+          </h3>
+          
+          <p class="text-base leading-relaxed text-slate-600 dark:text-slate-300">
+            As a <strong class="text-slate-900 dark:text-white">Zoology Honours student at the University of Delhi</strong>, I have cultivated a structured approach to analyzing complex patterns, processing detailed facts, and structuring arguments. I apply this rigorous analytical mindset directly to digital marketing, content copy, and business strategy.
+          </p>
+          
+          <p class="text-base leading-relaxed text-slate-600 dark:text-slate-300">
+            My path spans crafting high-impact enterprise positioning briefs for corporate consultancies, managing partner distributor networks, and writing comprehensive analytical copy on entertainment and strategy platforms. I specialize in turning complex services or raw summaries into crystal-clear content that speaks to decision makers and keeps readers scrolling.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+            <div class="p-4 rounded-xl border bg-white border-slate-200 dark:bg-slate-900/60 dark:border-slate-800">
+              <h4 class="font-bold text-blue-400 mb-1 flex items-center gap-2">
+                <i data-lucide="pen-tool" class="w-4 h-4"></i> Strategic Content Creation
+              </h4>
+              <p class="text-xs text-slate-400">Transforming abstract company strategies and scripts into clear, engaging, and readable digital copy.</p>
+            </div>
+            <div class="p-4 rounded-xl border bg-white border-slate-200 dark:bg-slate-900/60 dark:border-slate-800">
+              <h4 class="font-bold text-indigo-400 mb-1 flex items-center gap-2">
+                <i data-lucide="message-square" class="w-4 h-4"></i> Proactive Coordination
+              </h4>
+              <p class="text-xs text-slate-400">Managing client briefs, clarifying communication, and ensuring zero slippage on deadlines.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5">
+          <div class="p-8 rounded-3xl border text-left space-y-6 bg-white border-slate-200 shadow-lg dark:bg-slate-900 dark:border-slate-800 dark:shadow-none">
+            <h3 class="text-lg font-bold flex items-center gap-2">
+              <i data-lucide="award" class="text-blue-400 w-5 h-5"></i> Professional Pillars
+            </h3>
+            
+            <div class="space-y-4">
+              <div class="flex items-start gap-3">
+                <div class="p-1 rounded-full bg-blue-500/20 text-blue-400 mt-1">
+                  <i data-lucide="check-circle" class="w-4 h-4"></i>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-sm">University of Delhi</h4>
+                  <p class="text-xs text-slate-400">Zoology Honours curriculum developing sharp structured analytics and data comprehension.</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <div class="p-1 rounded-full bg-indigo-500/20 text-indigo-400 mt-1">
+                  <i data-lucide="check-circle" class="w-4 h-4"></i>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-sm">Content &amp; Client Mastery</h4>
+                  <p class="text-xs text-slate-400">Crafting high-end editorial briefs, entertainment articles, and maintaining professional corporate accounts.</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <div class="p-1 rounded-full bg-purple-500/20 text-purple-400 mt-1">
+                  <i data-lucide="check-circle" class="w-4 h-4"></i>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-sm">B2B Distributor Operations</h4>
+                  <p class="text-xs text-slate-400">Directly coordinating sales operations, distributor relationships, and managing outreach structures.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-4 border-t border-slate-800">
+              <div class="text-sm font-semibold tracking-wide text-slate-400 uppercase mb-2">My Core Philosophy:</div>
+              <blockquote class="italic text-xs text-slate-300 border-l-2 border-blue-500 pl-3">
+                "I bring together creativity, business understanding, communication skills, and execution capability to help organizations achieve meaningful growth and lasting impact."
+              </blockquote>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience" class="py-20">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-xs font-bold tracking-widest text-blue-500 uppercase mb-2">Career Milestones</h2>
+        <p class="text-3xl sm:text-4xl font-extrabold tracking-tight">Professional Experience</p>
+        <div class="w-12 h-1 bg-blue-500 mx-auto mt-4 rounded-full"></div>
+      </div>
+
+      <div class="space-y-8 relative before:absolute before:inset-0 before:left-4 sm:before:left-1/2 before:w-0.5 before:bg-slate-300 dark:before:bg-slate-800">
+        
+        <div class="relative flex flex-col sm:flex-row items-stretch sm:justify-between group">
+          <div class="absolute left-4 sm:left-1/2 w-4 h-4 rounded-full bg-blue-500 -translate-x-1.5 border-4 border-slate-100 dark:border-slate-900 group-hover:scale-125 transition-transform z-10"></div>
+          
+          <div class="w-full sm:w-[45%] pl-8 sm:pl-0 sm:text-right flex flex-col justify-center">
+            <span class="text-xs font-mono text-blue-500 dark:text-blue-400 tracking-wider">Mar 2026 - Present</span>
+            <h3 class="text-lg sm:text-xl font-bold mt-1">Content Writer &amp; Client Coordination</h3>
+            <h4 class="text-sm text-slate-500 dark:text-slate-400 font-semibold mb-2">Avadeti Media (A Venture of Ojas Group)</h4>
+          </div>
+
+          <div class="w-full sm:w-[45%] pl-8 sm:pl-8 pt-2 sm:pt-0">
+            <div class="p-6 rounded-2xl border text-left space-y-3 transition-all bg-white border-slate-200 shadow-sm hover:shadow-md dark:bg-slate-900/60 dark:border-slate-800 dark:hover:bg-slate-900 dark:shadow-none">
+              <ul class="space-y-2 text-xs sm:text-sm text-slate-600 dark:text-slate-400">
+                <li class="flex gap-2">
+                  <span class="text-blue-500 dark:text-blue-400 font-semibold shrink-0">•</span>
+                  <span><strong>Content Creation &amp; Management:</strong> Architecting premium written content perfectly aligned with target corporate tones and direct business objectives.</span>
+                </li>
+                <li class="flex gap-2">
+                  <span class="text-blue-500 dark:text-blue-400 font-semibold shrink-0">•</span>
+                  <span><strong>Client Communication:</strong> Handling briefs, clarifying editorial updates, and establishing seamless workflow timelines.</span>
+                </li>
+                <li class="flex gap-2">
+                  <span class="text-blue-500 dark:text-blue-400 font-semibold shrink-0">•</span>
+                  <span><strong>Campaign &amp; Brand Planning:</strong> Developing editorial messaging, headlines, and strategic frameworks for digital distributions.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative flex flex-col sm:flex-row items-stretch sm:justify-between group">
+          <div class="absolute left-4 sm:left-1/2 w-4 h-4 rounded-full bg-indigo-500 -translate-x-1.5 border-4 border-slate-100 dark:border-slate-900 group-hover:scale-125 transition-transform z-10"></div>
+          
+          <div class="w-full sm:w-[45%] pl-8 sm:pl-0 sm:text-right sm:order-2 flex flex-col justify-center">
+            <span class="text-xs font-mono text-indigo-500 dark:text-indigo-400 tracking-wider">Jun 2025 - Present</span>
+            <h3 class="text-lg sm:text-xl font-bold mt-1">Sales &amp; Marketing Representative</h3>
+            <h4 class="text-sm text-slate-500 dark:text-slate-400 font-semibold mb-2">A.K. Marketing</h4>
+          </div>
+
+          <div class="w-full sm:w-[45%] pl-8 sm:pr-8 pt-2 sm:pt-0 sm:order-1">
+            <div class="p-6 rounded-2xl border text-left space-y-3 transition-all bg-white border-slate-200 shadow-sm hover:shadow-md dark:bg-slate-900/60 dark:border-slate-800 dark:hover:bg-slate-900 dark:shadow-none">
+              <ul class="space-y-2 text-xs sm:text-sm text-slate-600 dark:text-slate-400">
+                <li class="flex gap-2">
+                  <span class="text-indigo-500 dark:text-indigo-400 font-semibold shrink-0">•</span>
+                  <span><strong>Partner Relationship Management:</strong> Coordinating communication with regional distributors, addressing logistics and expansion strategies directly.</span>
+                </li>
+                <li class="flex gap-2">
+                  <span class="text-indigo-500 dark:text-indigo-400 font-semibold shrink-0">•</span>
+                  <span><strong>Market Research:</strong> Analyzing local competitor structures and target demands to increase operational distribution efficiency.</span>
+                </li>
+                <li class="flex gap-2">
+                  <span class="text-indigo-500 dark:text-indigo-400 font-semibold shrink-0">•</span>
+                  <span><strong>Outreach Support:</strong> Formulating regional brand activation guidelines and facilitating coordination between partners and administrative frameworks.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="py-20 border-t border-b bg-[#f1f5f9] border-slate-200 dark:bg-[#0f1115] dark:border-slate-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-xs font-bold tracking-widest text-blue-500 uppercase mb-2">Competencies Matrix</h2>
+        <p class="text-3xl sm:text-4xl font-extrabold tracking-tight">Skills &amp; Capabilities</p>
+        <div class="w-12 h-1 bg-blue-500 mx-auto mt-4 rounded-full"></div>
+      </div>
+
+      <div class="flex justify-center mb-12">
+        <div class="flex p-1.5 rounded-xl border bg-slate-200/50 border-slate-300 dark:bg-slate-950 dark:border-slate-800">
+          <button onclick="setTab('marketing')" id="tab-marketing" class="tab-btn px-5 py-2 text-xs font-bold tracking-wider uppercase rounded-lg transition bg-blue-600 text-white">
+            Marketing
+          </button>
+          <button onclick="setTab('writing')" id="tab-writing" class="tab-btn px-5 py-2 text-xs font-bold tracking-wider uppercase rounded-lg transition text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200">
+            Content &amp; Copy
+          </button>
+          <button onclick="setTab('tools')" id="tab-tools" class="tab-btn px-5 py-2 text-xs font-bold tracking-wider uppercase rounded-lg transition text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200">
+            Tools &amp; Tech
+          </button>
+        </div>
+      </div>
+
+      <div id="skills-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <!-- Skills injected here via JS -->
+      </div>
+
+      <div class="mt-12 flex flex-wrap justify-center gap-3">
+        <span class="px-4 py-2 rounded-xl text-xs font-semibold tracking-wide border bg-white border-slate-200 text-slate-700 shadow-sm dark:bg-slate-900/50 dark:border-slate-800 dark:text-slate-300 dark:shadow-none">✔ Adaptable Learner</span>
+        <span class="px-4 py-2 rounded-xl text-xs font-semibold tracking-wide border bg-white border-slate-200 text-slate-700 shadow-sm dark:bg-slate-900/50 dark:border-slate-800 dark:text-slate-300 dark:shadow-none">✔ Problem Solving</span>
+        <span class="px-4 py-2 rounded-xl text-xs font-semibold tracking-wide border bg-white border-slate-200 text-slate-700 shadow-sm dark:bg-slate-900/50 dark:border-slate-800 dark:text-slate-300 dark:shadow-none">✔ Strategic Planning</span>
+        <span class="px-4 py-2 rounded-xl text-xs font-semibold tracking-wide border bg-white border-slate-200 text-slate-700 shadow-sm dark:bg-slate-900/50 dark:border-slate-800 dark:text-slate-300 dark:shadow-none">✔ Presentation Skills</span>
+        <span class="px-4 py-2 rounded-xl text-xs font-semibold tracking-wide border bg-white border-slate-200 text-slate-700 shadow-sm dark:bg-slate-900/50 dark:border-slate-800 dark:text-slate-300 dark:shadow-none">✔ Team Coordination</span>
+        <span class="px-4 py-2 rounded-xl text-xs font-semibold tracking-wide border bg-white border-slate-200 text-slate-700 shadow-sm dark:bg-slate-900/50 dark:border-slate-800 dark:text-slate-300 dark:shadow-none">✔ Corporate Report Preparation</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section id="work" class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <h2 class="text-xs font-bold tracking-widest text-blue-500 uppercase mb-2">Showcase Directory</h2>
+        <p class="text-3xl sm:text-4xl font-extrabold tracking-tight">Verified Work Portfolio</p>
+        <div class="w-12 h-1 bg-blue-500 mx-auto mt-4 rounded-full"></div>
+      </div>
+
+      <div class="flex flex-wrap justify-center gap-2 mb-12">
+        <button onclick="setCategory('All')" id="cat-All" class="cat-btn px-5 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition bg-blue-600 text-white shadow-md">All</button>
+        <button onclick="setCategory('Copywriting')" id="cat-Copywriting" class="cat-btn px-5 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 dark:bg-slate-900 dark:border-slate-800 dark:text-slate-400 dark:hover:text-slate-100">Copywriting</button>
+        <button onclick="setCategory('Entertainment')" id="cat-Entertainment" class="cat-btn px-5 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 dark:bg-slate-900 dark:border-slate-800 dark:text-slate-400 dark:hover:text-slate-100">Entertainment</button>
+        <button onclick="setCategory('Strategy')" id="cat-Strategy" class="cat-btn px-5 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 dark:bg-slate-900 dark:border-slate-800 dark:text-slate-400 dark:hover:text-slate-100">Strategy</button>
+      </div>
+
+      <div id="portfolio-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Portfolio injected here via JS -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Why Hire Me Section -->
+  <section id="why-hire" class="py-20 border-t bg-[#f1f5f9] border-slate-200 dark:bg-[#0f1115] dark:border-slate-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-xs font-bold tracking-widest text-blue-500 uppercase mb-2">Value Addition</h2>
+        <p class="text-3xl sm:text-4xl font-extrabold tracking-tight">Why Hire Me?</p>
+        <div class="w-12 h-1 bg-blue-500 mx-auto mt-4 rounded-full"></div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6 text-left">
+          
+          <div class="p-6 rounded-2xl border bg-white border-slate-200 shadow-sm dark:bg-slate-900 dark:border-slate-800 dark:shadow-none">
+            <div class="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center mb-4">
+              <i data-lucide="pen-tool" class="w-5 h-5 text-blue-500 dark:text-blue-400"></i>
+            </div>
+            <h3 class="font-bold text-base mb-1">Impactful Copywriting</h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400">Advanced capability to convert strategy goals into clean, publication-ready copy that commands retention.</p>
+          </div>
+
+          <div class="p-6 rounded-2xl border bg-white border-slate-200 shadow-sm dark:bg-slate-900 dark:border-slate-800 dark:shadow-none">
+            <div class="w-10 h-10 rounded-xl bg-indigo-500/10 flex items-center justify-center mb-4">
+              <i data-lucide="message-square" class="w-5 h-5 text-indigo-500 dark:text-indigo-400"></i>
+            </div>
+            <h3 class="font-bold text-base mb-1">Clear Client Alignment</h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400">Directly experienced in managing professional client workflows, organizing revision briefs, and maintaining timelines.</p>
+          </div>
+
+          <div class="p-6 rounded-2xl border bg-white border-slate-200 shadow-sm dark:bg-slate-900 dark:border-slate-800 dark:shadow-none">
+            <div class="w-10 h-10 rounded-xl bg-purple-500/10 flex items-center justify-center mb-4">
+              <i data-lucide="trending-up" class="w-5 h-5 text-purple-500 dark:text-purple-400"></i>
+            </div>
+            <h3 class="font-bold text-base mb-1">B2B Sales Experience</h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400">Hands-on knowledge in maintaining company partnership records, market analysis, and distributor synchronization.</p>
+          </div>
+
+          <div class="p-6 rounded-2xl border bg-white border-slate-200 shadow-sm dark:bg-slate-900 dark:border-slate-800 dark:shadow-none">
+            <div class="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-4">
+              <i data-lucide="target" class="w-5 h-5 text-emerald-500 dark:text-emerald-400"></i>
+            </div>
+            <h3 class="font-bold text-base mb-1">Analytical Approach</h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400">Applying logical deduction structures trained through rigorous University level academic pursuits into marketing operations.</p>
+          </div>
+
+        </div>
+
+        <div class="lg:col-span-5 text-left">
+          <div class="p-8 rounded-3xl border space-y-6 bg-white border-slate-200 shadow-xl dark:bg-slate-900 dark:border-slate-800 dark:shadow-none">
+            <h3 class="text-2xl font-bold tracking-tight">The Competitive Edge</h3>
+            <p class="text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+              I do not just produce text. I analyze target segments, establish structured brand voices, and manage corporate pipelines carefully. Whether working directly on business-to-business coordinator loops or creating high-retention review pieces, I focus entirely on measurable outcomes.
+            </p>
+
+            <div class="space-y-3 pt-2">
+              <div class="flex items-center gap-3">
+                <div class="w-5 h-5 rounded-full bg-blue-500/20 flex items-center justify-center shrink-0">
+                  <i data-lucide="check-circle" class="w-3.5 h-3.5 text-blue-500 dark:text-blue-400"></i>
+                </div>
+                <span class="text-xs sm:text-sm font-medium">Proven campaign planning at Avadeti Media</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="w-5 h-5 rounded-full bg-blue-500/20 flex items-center justify-center shrink-0">
+                  <i data-lucide="check-circle" class="w-3.5 h-3.5 text-blue-500 dark:text-blue-400"></i>
+                </div>
+                <span class="text-xs sm:text-sm font-medium">Strong collaborative team alignment capability</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="w-5 h-5 rounded-full bg-blue-500/20 flex items-center justify-center shrink-0">
+                  <i data-lucide="check-circle" class="w-3.5 h-3.5 text-blue-500 dark:text-blue-400"></i>
+                </div>
+                <span class="text-xs sm:text-sm font-medium">Adept with Claude AI, ChatGPT, and AI tools for accelerated research</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="w-5 h-5 rounded-full bg-blue-500/20 flex items-center justify-center shrink-0">
+                  <i data-lucide="check-circle" class="w-3.5 h-3.5 text-blue-500 dark:text-blue-400"></i>
+                </div>
+                <span class="text-xs sm:text-sm font-medium">Clear, consistent communication and zero backlog delivery</span>
+              </div>
+            </div>
+
+            <div class="pt-4 border-t border-slate-200 dark:border-slate-800">
+              <a href="#contact" class="w-full py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold rounded-xl flex items-center justify-center space-x-2 shadow-lg shadow-blue-500/20 hover:scale-[1.01] transition-all">
+                <span>Secure My Services</span>
+                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 relative overflow-hidden">
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-500/5 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      
+      <div class="text-center mb-12">
+        <h2 class="text-xs font-bold tracking-widest text-blue-500 uppercase mb-2">Engagement</h2>
+        <p class="text-3xl sm:text-4xl font-extrabold tracking-tight">Let's Connect</p>
+        <div class="w-12 h-1 bg-blue-500 mx-auto mt-4 rounded-full"></div>
+      </div>
+
+      <div class="p-8 sm:p-12 rounded-3xl border text-center relative overflow-hidden bg-white border-slate-200 shadow-xl dark:bg-slate-900/80 dark:border-slate-800 dark:shadow-none">
+        
+        <div class="relative z-10 space-y-6">
+          
+          <div class="w-20 h-20 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl mx-auto flex items-center justify-center shadow-lg shadow-blue-500/20">
+            <span class="text-2xl font-extrabold text-white tracking-wider">KB</span>
+          </div>
+
+          <div class="space-y-2 max-w-lg mx-auto">
+            <h3 class="text-2xl font-bold">Kshitij Balodhi</h3>
+            <p class="text-sm text-slate-500 dark:text-slate-400 font-medium">Content Writer | Marketing Professional | Client Coordinator</p>
+            <p class="text-xs text-slate-600 dark:text-slate-500">Available globally for editorial contracts, strategic corporate storytelling, and high-stakes client engagement coordination.</p>
+          </div>
+
+          <div class="w-12 h-0.5 bg-slate-200 dark:bg-slate-800 mx-auto my-6"></div>
+
+          <div class="flex flex-col items-center space-y-4 max-w-md mx-auto">
+            
+            <a href="mailto:Kshitijbalodhi1@gmail.com" class="w-full p-4 rounded-xl border flex items-center space-x-4 transition-all bg-slate-50 border-slate-200 hover:bg-slate-100 dark:bg-slate-950/60 dark:border-slate-800 dark:hover:bg-slate-900/80">
+              <div class="p-2.5 rounded-lg bg-blue-500/10 text-blue-500 dark:text-blue-400 shrink-0">
+                <i data-lucide="mail" class="w-5 h-5"></i>
+              </div>
+              <div class="text-left">
+                <span class="block text-[10px] font-mono tracking-wider text-slate-500 uppercase">Write to Me</span>
+                <span class="text-sm sm:text-base font-bold text-blue-500 dark:text-blue-400">Kshitijbalodhi1@gmail.com</span>
+              </div>
+            </a>
+
+            <a href="tel:+917906956276" class="w-full p-4 rounded-xl border flex items-center space-x-4 transition-all bg-slate-50 border-slate-200 hover:bg-slate-100 dark:bg-slate-950/60 dark:border-slate-800 dark:hover:bg-slate-900/80">
+              <div class="p-2.5 rounded-lg bg-indigo-500/10 text-indigo-500 dark:text-indigo-400 shrink-0">
+                <i data-lucide="phone" class="w-5 h-5"></i>
+              </div>
+              <div class="text-left">
+                <span class="block text-[10px] font-mono tracking-wider text-slate-500 uppercase">Call Directly</span>
+                <span class="text-sm sm:text-base font-bold text-indigo-500 dark:text-indigo-400">+91 7906956276</span>
+              </div>
+            </a>
+
+            <div class="w-full p-4 rounded-xl border flex items-center space-x-4 bg-slate-50 border-slate-200 dark:bg-slate-950/60 dark:border-slate-800">
+              <div class="p-2.5 rounded-lg bg-purple-500/10 text-purple-500 dark:text-purple-400 shrink-0">
+                <i data-lucide="map-pin" class="w-5 h-5"></i>
+              </div>
+              <div class="text-left">
+                <span class="block text-[10px] font-mono tracking-wider text-slate-500 uppercase">Primary Location Base</span>
+                <span class="text-sm sm:text-base font-bold">New Delhi, India</span>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="flex justify-center space-x-4 pt-6">
+            <a href="https://linkedin.com" target="_blank" rel="noreferrer" class="p-3 rounded-full border transition-all bg-white border-slate-200 hover:bg-slate-100 text-blue-600 dark:bg-slate-950 dark:border-slate-800 dark:hover:bg-slate-800 dark:text-blue-400" aria-label="LinkedIn">
+              <i data-lucide="linkedin" class="w-5 h-5"></i>
+            </a>
+            <a href="https://instagram.com" target="_blank" rel="noreferrer" class="p-3 rounded-full border transition-all bg-white border-slate-200 hover:bg-slate-100 text-pink-600 dark:bg-slate-950 dark:border-slate-800 dark:hover:bg-slate-800 dark:text-pink-400" aria-label="Instagram">
+              <i data-lucide="instagram" class="w-5 h-5"></i>
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-12 border-t transition-colors bg-slate-100 border-slate-200 text-slate-600 dark:bg-[#08090b] dark:border-slate-900 dark:text-slate-400">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+        
+        <div class="text-left text-center md:text-left">
+          <span class="text-lg font-bold tracking-tight bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent block">
+            KSHITIJ BALODHI
+          </span>
+          <span class="text-[10px] font-mono tracking-widest uppercase">
+            Content Writer | Marketing Professional
+          </span>
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-6 text-sm">
+          <a href="#about" class="hover:text-blue-500 dark:hover:text-blue-400 transition">About</a>
+          <a href="#experience" class="hover:text-blue-500 dark:hover:text-blue-400 transition">Experience</a>
+          <a href="#skills" class="hover:text-blue-500 dark:hover:text-blue-400 transition">Skills</a>
+          <a href="#work" class="hover:text-blue-500 dark:hover:text-blue-400 transition">Portfolio</a>
+          <a href="#contact" class="hover:text-blue-500 dark:hover:text-blue-400 transition">Contact</a>
+        </div>
+
+      </div>
+
+      <div class="w-full h-px bg-slate-300 dark:bg-slate-800/50 my-8"></div>
+
+      <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-xs">
+        <p>© <span id="current-year"></span> Kshitij Balodhi. All rights reserved.</p>
+        <p class="text-slate-500 font-mono">Designed with strategic credibility.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // --- Data Sources ---
+    const WORK_SHOWCASE = [
+      {
+        id: 1,
+        title: "Perception is Infrastructure",
+        subtitle: "Brand Narrative & Corporate Copywriting",
+        category: "Copywriting",
+        image: "WhatsApp Image 2026-06-21 at 12.47.40.jpeg",
+        description: "A compelling masterclass narrative analyzing how world-class brands engineer public trust and craft enduring market authority through deliberate, low-noise communication strategy.",
+        skills: ["Corporate Storytelling", "Brand Positioning", "Strategic Copywriting"],
+        results: "Published and distributed across executive communication channels to align enterprise authority."
+      },
+      {
+        id: 2,
+        title: "Call Me Bae Season 2 Preview",
+        subtitle: "SpotlightersPost Feature",
+        category: "Entertainment",
+        image: "WhatsApp Image 2026-06-21 at 12.47.41 (1).jpeg",
+        description: "An engaging, trend-centric content marketing article covering the official renewal and key facts of the highly anticipated Prime Video series.",
+        skills: ["SEO Writing", "Audience Engagement", "Pop Culture Reporting"],
+        results: "Generated highly competitive traffic metrics on SpotlightersPost platform."
+      },
+      {
+        id: 3,
+        title: "Bloodhounds Season 2 Review",
+        subtitle: "High-Octane Netflix Review",
+        category: "Entertainment",
+        image: "WhatsApp Image 2026-06-21 at 12.47.41.jpeg",
+        description: "An analytical critique covering the visceral storytelling and thematic developments in the global Netflix sensation, written to command high retention.",
+        skills: ["Critical Analysis", "SEO Copywriting", "Editorial Layout"],
+        results: "Ranked effectively on Google Search entertainment segments."
+      },
+      {
+        id: 4,
+        title: "Avadeti Consortium Platform Copy",
+        subtitle: "Corporate Communication Blueprint",
+        category: "Strategy",
+        image: "WhatsApp Image 2026-06-21 at 12.47.42 (1).jpeg",
+        description: "Crafted the foundational corporate copy for a global collective of thinkers, focusing on high-stakes connectivity, narrative intelligence, and professional alignment.",
+        skills: ["Narrative Intelligence", "Client Coordination", "Corporate Communication"],
+        results: "Approved by multi-sector governance stakeholders for executive outreach."
+      },
+      {
+        id: 5,
+        title: "Matra Financial Services Copy",
+        subtitle: "Premium Professional Positioning",
+        category: "Strategy",
+        image: "WhatsApp Image 2026-06-21 at 12.47.42.jpeg",
+        description: "Editorial positioning outlining corporate structuring and financial management services, delivering a superior experience of professionalism and personalization.",
+        skills: ["Corporate Positioning", "Strategic Messaging", "Financial Copywriting"],
+        results: "Established a clear, trustworthy digital storefront and value proposition."
+      },
+      {
+        id: 6,
+        title: "Matra Business Consultation Pitch",
+        subtitle: "Client-Centric Copywriting & Structure",
+        category: "Copywriting",
+        image: "WhatsApp Image 2026-06-21 at 12.47.43.jpeg",
+        description: "High-impact messaging for B2B consulting services, designed to outline corporate growth solutions across global industries and sectors clearly.",
+        skills: ["Client Relationship Building", "B2B Positioning", "Information Architecture"],
+        results: "Used directly to introduce client onboarding consultation programs."
+      }
+    ];
+
+    const SKILLS_MATRIX = [
+      {
+        category: "Marketing",
+        items: [
+          "Digital Marketing",
+          "Brand Strategy",
+          "Market Research",
+          "Sales Operations",
+          "Business Development"
+        ]
+      },
+      {
+        category: "Content & Communication",
+        items: [
+          "Content Writing",
+          "Copywriting",
+          "Client Coordination",
+          "Strategic Storytelling",
+          "Presentation Skills"
+        ]
+      },
+      {
+        category: "Tools & Software",
+        items: [
+          "Canva",
+          "ChatGPT",
+          "Claude AI",
+          "Google Analytics",
+          "Meta Business Suite",
+          "CRM Tools",
+          "Google Workspace",
+          "Excel",
+          "PowerPoint"
+        ]
+      }
+    ];
+
+    // --- State and Logic ---
+    let isDarkMode = true;
+    let currentTab = 'marketing';
+    let currentCategory = 'All';
+
+    // Preloader Timeout
+    setTimeout(() => {
+      const preloader = document.getElementById('preloader');
+      preloader.style.opacity = '0';
+      preloader.style.pointerEvents = 'none';
+      setTimeout(() => preloader.remove(), 500); // Remove from DOM after fade out
+    }, 1200);
+
+    // Set Copyright Year
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+
+    // Theme Toggle Logic
+    const themeBtn = document.getElementById('theme-toggle');
+    const htmlElement = document.documentElement;
+
+    themeBtn.addEventListener('click', () => {
+      isDarkMode = !isDarkMode;
+      if (isDarkMode) {
+        htmlElement.classList.add('dark');
+      } else {
+        htmlElement.classList.remove('dark');
+      }
+    });
+
+    // Mobile Menu Logic
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuLinks = document.querySelectorAll('.mobile-link');
+    let isMenuOpen = false;
+
+    function toggleMenu() {
+      isMenuOpen = !isMenuOpen;
+      if (isMenuOpen) {
+        mobileMenu.classList.remove('hidden');
+        document.getElementById('menu-open-icon').classList.add('hidden');
+        document.getElementById('menu-close-icon').classList.remove('hidden');
+      } else {
+        mobileMenu.classList.add('hidden');
+        document.getElementById('menu-open-icon').classList.remove('hidden');
+        document.getElementById('menu-close-icon').classList.add('hidden');
+      }
+    }
+
+    menuBtn.addEventListener('click', toggleMenu);
+    menuLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if(isMenuOpen) toggleMenu();
+      });
+    });
+
+    // Render Skills Logic
+    function setTab(tabId) {
+      currentTab = tabId;
+      
+      // Update Button Styles
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        if (btn.id === `tab-${tabId}`) {
+          btn.className = `tab-btn px-5 py-2 text-xs font-bold tracking-wider uppercase rounded-lg transition bg-blue-600 text-white`;
+        } else {
+          btn.className = `tab-btn px-5 py-2 text-xs font-bold tracking-wider uppercase rounded-lg transition text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200`;
+        }
+      });
+
+      // Find Category Name
+      const matrixMap = {
+        'marketing': 'Marketing',
+        'writing': 'Content & Communication',
+        'tools': 'Tools & Software'
+      };
+      
+      const targetCategory = matrixMap[tabId];
+      const items = SKILLS_MATRIX.find(m => m.category === targetCategory)?.items || [];
+      
+      // Generate HTML
+      const skillsHtml = items.map(skill => `
+        <div class="p-6 rounded-2xl border text-left flex items-center justify-between transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg bg-white border-slate-200 shadow-sm hover:shadow-md dark:bg-slate-900/40 dark:border-slate-800/80 dark:hover:border-slate-700 dark:hover:bg-slate-900">
+          <div class="flex items-center space-x-3">
+            <div class="p-2 rounded-lg shrink-0 ${
+              tabId === 'marketing' ? 'bg-blue-500/10 text-blue-500 dark:text-blue-400' : 
+              tabId === 'writing' ? 'bg-indigo-500/10 text-indigo-500 dark:text-indigo-400' : 'bg-purple-500/10 text-purple-500 dark:text-purple-400'
+            }">
+              <i data-lucide="check-circle" class="w-5 h-5"></i>
+            </div>
+            <span class="font-bold text-base">${skill}</span>
+          </div>
+          <i data-lucide="chevron-right" class="w-4 h-4 text-slate-400 dark:text-slate-500"></i>
+        </div>
+      `).join('');
+
+      document.getElementById('skills-grid').innerHTML = skillsHtml;
+      lucide.createIcons();
+    }
+
+    // Render Portfolio Logic
+    function setCategory(cat) {
+      currentCategory = cat;
+
+      // Update Button Styles
+      document.querySelectorAll('.cat-btn').forEach(btn => {
+        if (btn.id === `cat-${cat}`) {
+          btn.className = `cat-btn px-5 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition bg-blue-600 text-white shadow-md`;
+        } else {
+          btn.className = `cat-btn px-5 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 dark:bg-slate-900 dark:border-slate-800 dark:text-slate-400 dark:hover:text-slate-100`;
+        }
+      });
+
+      // Filter Data
+      const filtered = cat === 'All' ? WORK_SHOWCASE : WORK_SHOWCASE.filter(p => p.category === cat);
+
+      // Generate HTML
+      const portfolioHtml = filtered.map(project => `
+        <article class="group flex flex-col rounded-3xl border overflow-hidden transition-all duration-300 bg-white border-slate-200 shadow-lg dark:bg-slate-900/40 dark:border-slate-800/80 dark:hover:border-slate-700">
+          <div class="relative overflow-hidden bg-slate-200 dark:bg-slate-950 w-full" style="aspect-ratio: 16/10;">
+            <img 
+              src="${project.image}" 
+              alt="${project.title}" 
+              class="w-full h-full object-cover transition duration-500 group-hover:scale-105"
+              onerror="this.src='https://placehold.co/600x375/1e1b4b/ffffff?text=${encodeURIComponent(project.title)}';"
+            />
+            <div class="absolute top-4 left-4">
+              <span class="px-3 py-1 bg-white/90 dark:bg-slate-900/95 backdrop-blur border border-slate-200 dark:border-white/10 text-[10px] font-bold tracking-widest uppercase rounded-full text-blue-600 dark:text-blue-400">
+                ${project.category}
+              </span>
+            </div>
+          </div>
+
+          <div class="p-6 flex-1 flex flex-col justify-between text-left space-y-4">
+            <div class="space-y-2">
+              <span class="text-[10px] font-mono tracking-widest text-slate-500 uppercase">${project.subtitle}</span>
+              <h3 class="text-xl font-bold group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">${project.title}</h3>
+              <p class="text-xs sm:text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+                ${project.description}
+              </p>
+            </div>
+
+            <div class="space-y-4">
+              <div class="flex flex-wrap gap-1.5 pt-2">
+                ${project.skills.map(sk => `
+                  <span class="text-[10px] font-semibold px-2 py-1 rounded-md bg-slate-100 text-slate-700 dark:bg-slate-950 dark:text-slate-300">
+                    ${sk}
+                  </span>
+                `).join('')}
+              </div>
+
+              <div class="p-3 rounded-xl text-xs border bg-slate-50 border-slate-200 text-slate-700 dark:bg-slate-950/80 dark:border-slate-800 dark:text-slate-300">
+                <strong class="text-blue-600 dark:text-blue-400">Impact: </strong> ${project.results}
+              </div>
+            </div>
+          </div>
+        </article>
+      `).join('');
+
+      document.getElementById('portfolio-grid').innerHTML = portfolioHtml;
+    }
+
+    // Initialize Page
+    document.addEventListener('DOMContentLoaded', () => {
+      setTab('marketing');
+      setCategory('All');
+      lucide.createIcons();
+    });
+  </script>
+</body>
+</html>
